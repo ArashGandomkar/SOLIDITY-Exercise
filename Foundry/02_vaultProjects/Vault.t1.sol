@@ -15,7 +15,7 @@ contract VaultTest1 is Test {
     function testDepositFuzz(uint256 amount) public {
         amount = bound(amount, 1 ether, 10 ether);
         vm.deal(address(this), amount);
-        vault.Deposit{value: amount}();
+        vault.deposit{value: amount}();
         assertEq(address(vault).balance, amount);
     }
 }
